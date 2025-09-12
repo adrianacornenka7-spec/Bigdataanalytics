@@ -1,0 +1,15 @@
+[project]
+name = "labs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dora",
+    "jupyter>=1.1.1",
+    "mypy>=1.18.1",
+    "scikit-learn>=1.7.2",
+]
+
+[tool.uv.sources]
+dora = { git = "https://github.com/NathanEpstein/Dora.git" }
