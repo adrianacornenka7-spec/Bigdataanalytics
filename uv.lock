@@ -908,6 +908,7 @@ dependencies = [
     { name = "dora" },
     { name = "jupyter" },
     { name = "mypy" },
+    { name = "pandas" },
     { name = "scikit-learn" },
 ]
 
@@ -916,6 +917,7 @@ requires-dist = [
     { name = "dora", git = "https://github.com/NathanEpstein/Dora.git" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "mypy", specifier = ">=1.18.1" },
+    { name = "pandas", specifier = ">=2.3.2" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
 ]
 

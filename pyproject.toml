@@ -8,6 +8,7 @@ dependencies = [
     "dora",
     "jupyter>=1.1.1",
     "mypy>=1.18.1",
+    "pandas>=2.3.2",
     "scikit-learn>=1.7.2",
 ]
 
