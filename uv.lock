@@ -890,6 +890,19 @@ wheels = [
 ]
 
 [[package]]
+name = "ipycytoscape"
+version = "1.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ipywidgets" },
+    { name = "spectate" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/21/4b/dca529aa566ce225107580c6c8625c7dc5ecb1532f7d73259e2888d2187a/ipycytoscape-1.3.3.tar.gz", hash = "sha256:b6f3199df034f088e92d388e27e629f58ae2901b213cb9299e5b564272f9a2f8", size = 3885550, upload-time = "2022-04-04T22:26:45.943Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4c/0f/b66d63d4a5426c09005d3713b056e634e00e69788fdc88d1ffe40e5b7654/ipycytoscape-1.3.3-py2.py3-none-any.whl", hash = "sha256:4bc205724971f5f7a3fc2b09dfec20c357c4c6dfa2b4bd41e7c33c995c3f6906", size = 3595634, upload-time = "2022-04-04T22:26:36.926Z" },
+]
+
+[[package]]
 name = "ipykernel"
 version = "7.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1342,6 +1355,7 @@ dependencies = [
     { name = "folium" },
     { name = "geopandas" },
     { name = "geopy" },
+    { name = "ipycytoscape" },
     { name = "jupyter" },
     { name = "mapclassify" },
     { name = "matplotlib" },
@@ -1361,6 +1375,7 @@ requires-dist = [
     { name = "folium", specifier = ">=0.20.0" },
     { name = "geopandas", specifier = ">=1.1.1" },
     { name = "geopy", specifier = ">=2.4.1" },
+    { name = "ipycytoscape", specifier = ">=1.3.3" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "mapclassify", specifier = ">=2.10.0" },
     { name = "matplotlib", specifier = ">=3.10.7" },
@@ -2715,6 +2730,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/6d/e6/21ccce3262dd4889aa3332e5a119a3491a95e8f60939870a3a035aabac0d/soupsieve-2.8.tar.gz", hash = "sha256:e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f", size = 103472, upload-time = "2025-08-27T15:39:51.78Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/14/a0/bb38d3b76b8cae341dad93a2dd83ab7462e6dbcdd84d43f54ee60a8dc167/soupsieve-2.8-py3-none-any.whl", hash = "sha256:0cc76456a30e20f5d7f2e14a98a4ae2ee4e5abdc7c5ea0aafe795f344bc7984c", size = 36679, upload-time = "2025-08-27T15:39:50.179Z" },
+]
+
+[[package]]
+name = "spectate"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/8d/78dbadaeea943cc0fb9d3cd6b0a4f4668a46f84de1c5507fe3c9f02b8973/spectate-1.0.1.tar.gz", hash = "sha256:49a2dde0962fcecf120cb361cc293989489078eb29ba1d8c3d342a741e898b7e", size = 14573, upload-time = "2021-03-05T17:17:48.847Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/81/ec/8bdccea3ff7d557601183581340c3768b7bb7b1e32c8991f1130f0c1e2c4/spectate-1.0.1-py2.py3-none-any.whl", hash = "sha256:c4585194c238979f953fbf2ecf9f94c84d9d0a929432c7104e39984f52c9e718", size = 11077, upload-time = "2021-03-05T17:17:47.529Z" },
 ]
 
 [[package]]
