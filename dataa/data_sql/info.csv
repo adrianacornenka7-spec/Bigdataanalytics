@@ -1,0 +1,411 @@
+﻿,Filename,Overview,Notes,Field,Format,Explanation
+1,climate.csv,Contains the Koppen climate zone associated with each image's location.,"The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of the Koppen climate zone classification API from https://github.com/sco-tt/Climate-Zone-API.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,koppen_geiger_zone,string,A zone code to identify the Koppen climate zone
+,,,,zone_description,string,Short description of the climate zone
+2,contextual.csv,Contains the eight contextual attributes inferred for each image.,Please refer to Table 3 in the paper for information on accuracy.,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,platform,string,"Indicates the type of platform/road the image was taken from (e.g. driving surface, walking surface, etc.)"
+,,,,weather,string,Indicates the weather condition in the image
+,,,,view_direction,string,"Indicates the viewing direction of the image (e.g. front/sideways), not applicable to panoramic images (pano_status==True)"
+,,,,lighting_condition,string,Indicates the lighting condition in the image (e.g. day/night/dawn or dusk)
+,,,,glare,string,Indicates the presence of glare in the image
+,,,,quality,string,Indicates the level of quality of the image as observed by the labeller (good/slightly poor/very poor)
+,,,,reflection,string,Indicates the presence of windshield reflection in the image
+,,,,pano_status,bool,Indicates whether the image is panoramic
+3,ephem.csv,Contains the temporal information of each image calculated using the python package 'PyEphem' with regards to the time of day.,"The accuracy of the calculation is as accurate as the timestamp of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of PyEphem.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,timezone,string,Timezone of the location where the image was captured
+,,,,utc_offset_s,float,UTC offset in seconds at the location where the image was captured
+,,,,calculated_day_night,string,"Indicates whether the image was taken in day time or night time, calculated using PyEphem. For the polar regions, 'polar day' or 'polar night' might apply depending on the season."
+,,,,hrs_aft_sunrise,float,The number of hours after sunrise when the image was captured: negative values indicate the number of hours before sunrise
+,,,,hrs_aft_sunset,float,The number of hours after sunset when the image was captured: negative values indicate the number of hours before sunset
+4,gadm.csv,"Contains the administrative area associated with each image, at all available levels.","The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of the GADM database.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,GID_0,string,"Unique ID at level 0 (country), using ISO 3166-1 alpha-3 country code when available"
+,,,,COUNTRY,string,Country Name in English
+,,,,CC_1,string,Uniqe ID of the level 1 state/province/equivalent within the country
+,,,,ENGTYPE_1,string,"Administrative type in English (following commonly used translations), at level 1"
+,,,,GID_1,string,Unique ID at level 1 (state/province/equivalent)
+,,,,HASC_1,string,HASC (a unique ID from Statoids) at level 1
+,,,,ISO_1,string,ISO 3166-2 code of the level 1 state/province/equivalent
+,,,,NAME_1,string,"Official name in latin script, at level 1"
+,,,,NL_NAME_1,string,"Non-Latin name. Official name in a non-latin script (e.g. Arabic, Chinese, Russian, Korean), at level 1"
+,,,,TYPE_1,string,"Administrative type in local language, at level 1"
+,,,,VARNAME_1,string,"Variant name. Alternate names in usage for the place, separated by pipes |, at level 1"
+,,,,CC_2,string,Uniqe ID of the level 2 county/district/equivalent within the country
+,,,,ENGTYPE_2,string,"Administrative type in English (following commonly used translations), at level 2"
+,,,,GID_2,string,Unique ID at level 2 (county/district/equivalent)
+,,,,HASC_2,string,HASC (a unique ID from Statoids) at level 2
+,,,,NAME_2,string,"Official name in latin script, at level 2"
+,,,,NL_NAME_2,string,"Non-Latin name. Official name in a non-latin script (e.g. Arabic, Chinese, Russian, Korean), at level 2"
+,,,,TYPE_2,string,"Administrative type in local language, at level 2"
+,,,,VARNAME_2,string,"Variant name. Alternate names in usage for the place, separated by pipes |, at level 2"
+,,,,CC_3,string,Uniqe ID of the level 3 commune/municipality/equivalent within the country
+,,,,ENGTYPE_3,string,"Administrative type in English (following commonly used translations), at level 3"
+,,,,GID_3,string,Unique ID at level 3 (commune/municipality/equivalent)
+,,,,HASC_3,string,HASC (a unique ID from Statoids) at level 3
+,,,,NAME_3,string,"Official name in latin script, at level 3"
+,,,,NL_NAME_3,string,"Non-Latin name. Official name in a non-latin script (e.g. Arabic, Chinese, Russian, Korean), at level 3"
+,,,,TYPE_3,string,"Administrative type in local language, at level 3"
+,,,,VARNAME_3,string,"Variant name. Alternate names in usage for the place, separated by pipes |, at level 3"
+,,,,CC_4,string,Uniqe ID of the level 4 adminstrative areas within the country
+,,,,ENGTYPE_4,string,"Administrative type in English (following commonly used translations), at level 4"
+,,,,GID_4,string,Unique ID at level 4
+,,,,NAME_4,string,"Official name in latin script, at level 4"
+,,,,TYPE_4,string,"Administrative type in local language, at level 4"
+,,,,VARNAME_4,string,"Variant name. Alternate names in usage for the place, separated by pipes |, at level 4"
+,,,,CC_5,string,Uniqe ID of the level 5 adminstrative areas within the country
+,,,,ENGTYPE_5,string,"Administrative type in English (following commonly used translations), at level 5"
+,,,,GID_5,string,Unique ID at level 5
+,,,,NAME_5,string,"Official name in latin script, at level 5"
+,,,,TYPE_5,string,"Administrative type in local language, at level 5"
+5,ghsl.csv,"Contains the degree of urbanisation associated with the location of the image, calculated using the Global Human Settlement Layer (GHSL).","The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of the GHSL dataset.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,urban_code,int,"A two-digit code that identifies the GHSL settlement typology: 30 - urban centre, 23 - dense urban cluster, 22 - semi-dense urban cluster, 21 - suburban or peri-urban, 13 - rural cluster, 12 - low density rural, 11 - very low density rural, 10 - water"
+,,,,urban_term,string,The GHSL settlement typology term associated with the code
+6,h3.csv,"Contains the ID of the h3-indexed hexagon associated with each image, at all available resolution levels from level 0 to 15.","The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,h3_0,string,"Unique index of the hexagonal cell containing the location of the image, at level 0 (average edge length = 1281.256011 km)"
+,,,,h3_1,string,"Unique index of the hexagonal cell containing the location of the image, at level 1 (average edge length = 483.0568391 km)"
+,,,,h3_2,string,"Unique index of the hexagonal cell containing the location of the image, at level 2 (average edge length = 182.5129565 km)"
+,,,,h3_3,string,"Unique index of the hexagonal cell containing the location of the image, at level 3 (average edge length = 68.97922179 km)"
+,,,,h3_4,string,"Unique index of the hexagonal cell containing the location of the image, at level 4 (average edge length = 26.07175968 km)"
+,,,,h3_5,string,"Unique index of the hexagonal cell containing the location of the image, at level 5 (average edge length = 9.854090990 km)"
+,,,,h3_6,string,"Unique index of the hexagonal cell containing the location of the image, at level 6 (average edge length = 3.724532667 km)"
+,,,,h3_7,string,"Unique index of the hexagonal cell containing the location of the image, at level 7 (average edge length = 1.406475763 km)"
+,,,,h3_8,string,"Unique index of the hexagonal cell containing the location of the image, at level 8 (average edge length = 0.531414010 km)"
+,,,,h3_9,string,"Unique index of the hexagonal cell containing the location of the image, at level 9 (average edge length = 0.200786148 km)"
+,,,,h3_10,string,"Unique index of the hexagonal cell containing the location of the image, at level 10 (average edge length = 0.075863783 km)"
+,,,,h3_11,string,"Unique index of the hexagonal cell containing the location of the image, at level 11 (average edge length = 0.028663897 km)"
+,,,,h3_12,string,"Unique index of the hexagonal cell containing the location of the image, at level 12 (average edge length = 0.010830188 km)"
+,,,,h3_13,string,"Unique index of the hexagonal cell containing the location of the image, at level 13 (average edge length = 0.004092010 km)"
+,,,,h3_14,string,"Unique index of the hexagonal cell containing the location of the image, at level 14 (average edge length = 0.001546100 km)"
+,,,,h3_15,string,"Unique index of the hexagonal cell containing the location of the image, at level 15 (average edge length = 0.000584169 km)"
+7,instances.csv,Contains the count of instances (65 categories) detected in each image.,Based on panoptic segmentation results obtained with Mask2former model. Accuracy is dependent on model performance.,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,Bird,int,Number of segmented instance
+,,,,Ground-Animal,int,Number of segmented instance
+,,,,Curb,int,Number of segmented instance
+,,,,Fence,int,Number of segmented instance
+,,,,Guard-Rail,int,Number of segmented instance
+,,,,Barrier,int,Number of segmented instance
+,,,,Wall,int,Number of segmented instance
+,,,,Bike-Lane,int,Number of segmented instance
+,,,,Crosswalk---Plain,int,Number of segmented instance
+,,,,Curb-Cut,int,Number of segmented instance
+,,,,Parking,int,Number of segmented instance
+,,,,Pedestrian-Area,int,Number of segmented instance
+,,,,Rail-Track,int,Number of segmented instance
+,,,,Road,int,Number of segmented instance
+,,,,Service-Lane,int,Number of segmented instance
+,,,,Sidewalk,int,Number of segmented instance
+,,,,Bridge,int,Number of segmented instance
+,,,,Building,int,Number of segmented instance
+,,,,Tunnel,int,Number of segmented instance
+,,,,Person,int,Number of segmented instance
+,,,,Bicyclist,int,Number of segmented instance
+,,,,Motorcyclist,int,Number of segmented instance
+,,,,Other-Rider,int,Number of segmented instance
+,,,,Lane-Marking---Crosswalk,int,Number of segmented instance
+,,,,Lane-Marking---General,int,Number of segmented instance
+,,,,Mountain,int,Number of segmented instance
+,,,,Sand,int,Number of segmented instance
+,,,,Sky,int,Number of segmented instance
+,,,,Snow,int,Number of segmented instance
+,,,,Terrain,int,Number of segmented instance
+,,,,Vegetation,int,Number of segmented instance
+,,,,Water,int,Number of segmented instance
+,,,,Banner,int,Number of segmented instance
+,,,,Bench,int,Number of segmented instance
+,,,,Bike-Rack,int,Number of segmented instance
+,,,,Billboard,int,Number of segmented instance
+,,,,Catch-Basin,int,Number of segmented instance
+,,,,CCTV-Camera,int,Number of segmented instance
+,,,,Fire-Hydrant,int,Number of segmented instance
+,,,,Junction-Box,int,Number of segmented instance
+,,,,Mailbox,int,Number of segmented instance
+,,,,Manhole,int,Number of segmented instance
+,,,,Phone-Booth,int,Number of segmented instance
+,,,,Pothole,int,Number of segmented instance
+,,,,Street-Light,int,Number of segmented instance
+,,,,Pole,int,Number of segmented instance
+,,,,Traffic-Sign-Frame,int,Number of segmented instance
+,,,,Utility-Pole,int,Number of segmented instance
+,,,,Traffic-Light,int,Number of segmented instance
+,,,,Traffic-Sign-(Back),int,Number of segmented instance
+,,,,Traffic-Sign-(Front),int,Number of segmented instance
+,,,,Trash-Can,int,Number of segmented instance
+,,,,Bicycle,int,Number of segmented instance
+,,,,Boat,int,Number of segmented instance
+,,,,Bus,int,Number of segmented instance
+,,,,Car,int,Number of segmented instance
+,,,,Caravan,int,Number of segmented instance
+,,,,Motorcycle,int,Number of segmented instance
+,,,,On-Rails,int,Number of segmented instance
+,,,,Other-Vehicle,int,Number of segmented instance
+,,,,Trailer,int,Number of segmented instance
+,,,,Truck,int,Number of segmented instance
+,,,,Wheeled-Slow,int,Number of segmented instance
+,,,,Car-Mount,int,Number of segmented instance
+,,,,Ego-Vehicle,int,Number of segmented instance
+8,metadata_common_attributes.csv,"Contains the common basic metadata attributes that are provided by both Mapillary and KartaView, and those we computed for both sources.","Accuracy is subject to that of the original metadata provided by Mapillary / KartaView, which also largely depends on the accuracy of data provided by the capturing devices.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,lat,float,Latitude of the image
+,,,,lon,float,Longitude of the image
+,,,,datetime_local,datetime,"Calculated datetime (string) at which the image was captured, in the local timezone of where the image was taken"
+,,,,year,int,The year in which the image was taken
+,,,,month,int,The month in which the image was taken
+,,,,day,int,The day in which the image was taken
+,,,,hour,int,The hour in which the image was taken
+,,,,width,int,Width of the image
+,,,,height,int,Height of the image
+,,,,heading,float,"Heading direction of the image, based on compass direction, in degrees"
+,,,,projection_type,string,"Projection type of the image (i.e. perspective, spherical, fisheye, equirectangular, etc.)"
+,,,,hFoV,float,Horizontal field of view (for Mapillary images: calculated using focal ratio and image dimensions; for KartaView images: directly obtained from metadata)
+,,,,vFoV,float,Vertical field of view (for Mapillary images: calculated using focal ratio and image dimensions; for KartaView images: directly obtained from metadata)
+,,,,sequence_index,int,The order index of the image in its sequence
+,,,,sequence_id,string,Sequence ID of the image specified by Mapillary / KartaView
+,,,,sequence_img_count,int,Number of images available in the sequence
+9,metadata_kv.csv,Contains the metadata of each SVI originally provided by KartaView.,"The explanation of the fields is largely based on our interpretation of the documentation of KartaView API, which can be incomplete or absent for many attributes.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,kv_shotDate,datetime,"Datetime string at which the image was captured, in GMT"
+,,,,kv_cameraParameters,json,"A json of floats: fNumber, fLen, vFOV, vZF, aperture"
+,,,,kv_qualityDetails,json,[insufficient documentation]
+,,,,kv_qualityLevel,int,Seems to be a level that indicates the quality of the image [insufficient documentation]
+,,,,kv_qualityStatus,string,Seems to indicate the status of the quality calculation [insufficient documentation]
+,,,,kv_autoImgProcessingResult,string,"Indicates how an image has been processed (e.g. blurred, original) [insufficient documentation]"
+,,,,kv_autoImgProcessingStatus,string,Indicates whether an image has been processed (e.g. finished) [insufficient documentation]
+,,,,kv_dateAdded,datetime,Datetime string at which the image was uploaded [insufficient documentation]
+,,,,kv_dateProcessed,datetime,Datetime string at which the image was processed [insufficient documentation]
+,,,,kv_distance,float,"Distance between the current image and its previous image, in metres"
+,,,,kv_fieldOfView,float,Field of View of the image
+,,,,kv_filepath,string,File path of the image [insufficient documentation]
+,,,,kv_filepathLTh,string,File path of a large thumbnail of the image [insufficient documentation]
+,,,,kv_filepathProc,string,File path of the processed image [insufficient documentation]
+,,,,kv_filepathTh,string,File path of a small thumbnail of the image [insufficient documentation]
+,,,,kv_fileurl,string,URL to the image file [insufficient documentation]
+,,,,kv_fileurlLTh,string,URL to a large thumbnail of the image file [insufficient documentation]
+,,,,kv_fileurlProc,string,URL to the processed image [insufficient documentation]
+,,,,kv_fileurlTh,string,URL to a small thumbnail of the image [insufficient documentation]
+,,,,kv_from,int,Likely the 'from' node of the OSM Way found nearest to the image [insufficient documentation]
+,,,,kv_gpsAccuracy,float,"Horizontal accuracy of the GPS-tracked photo, in metres"
+,,,,kv_hasObd,int,"A flag that confirms the presence of an OBD connection at the time the sequence was captured, in 1 or 0"
+,,,,kv_headers,float,"Seems to be some sort of angle, in degrees [insufficient documentation]"
+,,,,kv_imagePartProjection,string,Seems to indicate something about the projection of the image [insufficient documentation]
+,,,,kv_isUnwrapped,int,"Seems to be a flag for something, in 1 or 0 [insufficient documentation]"
+,,,,kv_isWrapped,int,"Seems to be a flag for something, in 1 or 0 [insufficient documentation]"
+,,,,kv_matchLat,float,Seems to be the latitude of some sort of matched location of the image [insufficient documentation]
+,,,,kv_matchLng,float,Seems to be the longitude of some sort of matched location of the image [insufficient documentation]
+,,,,kv_matchSegmentId,float,[insufficient documentation]
+,,,,kv_name,string,Name of the image [insufficient documentation]
+,,,,kv_orgCode,string,[insufficient documentation]
+,,,,kv_projectionYaw,float,"The projection on yaw axis, horizontal rotation in degrees, min -180, max 180"
+,,,,kv_rawDataId,int,Some sort of ID for the raw data [insufficient documentation]
+,,,,kv_status,string,"Status of the photo: ""public"", ""uploading"", ""processing"", ""failed"", ""deleted"""
+,,,,kv_storage,string,Storage of the image [insufficient documentation]
+,,,,kv_to,int,Likely the 'to' node of the OSM Way found nearest to the image [insufficient documentation]
+,,,,kv_unwrapVersion,int,[insufficient documentation]
+,,,,kv_videoId,int,ID of the video [insufficient documentation]
+,,,,kv_videoIndex,int,Identifier representing a specific video index [insufficient documentation]
+,,,,kv_visibility,string,"Indicates the visibility of the image: ""public"", ""private"", etc. [insufficient documentation]"
+,,,,kv_wayId,int,Likely the ID of the OSM Way found nearest to the image [insufficient documentation]
+,,,,kv_wrapVersion,int,[insufficient documentation]
+,,,,kv_address,string,Address of the image's location [insufficient documentation]
+,,,,kv_countryCode,string,Country code of the country where the image is located [insufficient documentation]
+,,,,kv_deviceName,string,Name of the image capturing device [insufficient documentation]
+,,,,kv_distanceSeq,float,Distance of the sequence recorded in kilometres [insufficient documentation]
+,,,,kv_sequenceType,string,"Type of the sequence, e.g. video [insufficient documentation]"
+,,,,kv_user,json,Identifier and username of the contributor [insufficient documentation]
+10,metadata_mly1.csv,Contains the metadata of each SVI originally provided by Mapillary.,"Split into five parts (metadata_mly1, metadata_mly2, metadata_mly3, metadata_mly4, metadata_mly5) to reduce file size.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,mly_captured_at,int,UNIX timestamp at which the image was captured
+,,,,mly_camera_parameters,array,"A string representation of an array of float: focal length, k1, k2"
+,,,,mly_quality_score,float,Score that indicates how good the image is (in experimental stage) [insufficient documentation]
+,,,,mly_altitude,float,Original altitude from camera Exif calculated from sea level
+,,,,mly_atomic_scale,float,Scale of the SfM reconstruction around the image
+,,,,mly_exif_orientation,int,Orientation of the camera as given by the Exif tag
+,,,,mly_is_pano,bool,Indicates whether an image is panoramic
+,,,,mly_organization_id,int,ID of the organisation under which the image was collected
+11,metadata_mly2.csv,,,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,mly_computed_altitude,float,"Altitude after running image processing, from sea level"
+,,,,mly_computed_compass_angle,float,Compass angle (or heading) after running image processing
+,,,,mly_computed_geometry,GeoJSON point,Location after running image processing
+,,,,mly_computed_rotation,array,A string representation of an array of corrected orientation of the image
+12,metadata_mly3.csv,,,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,mly_make,string,The manufacturer name of the camera device
+,,,,mly_model,string,The model or product series name of the camera device
+,,,,mly_creator.username,string,The username who owns and uploaded the image
+,,,,mly_creator.id,int,The user ID who owns and uploaded the image
+13,metadata_mly4.csv,,,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,mly_merge_cc,int,ID of the connected component of images that were aligned together
+,,,,mly_mesh.id,int,Contains the ID of the mesh
+,,,,mly_mesh.url,string,Contains the URL to the mesh
+14,metadata_mly5.csv,,,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,mly_sfm_cluster.id,int,Contains the ID of the point cloud in .ply format
+,,,,mly_sfm_cluster.url,string,Contains the URL to the point cloud in .ply format
+15,osm.csv,Contains the information of the OSM street found nearest to each image within its 10 m radius.,"The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of the OSM dataset. OSM street networks were obtained through the OSMnx package.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,snap_dist,float,The distance between the location of the image and the nearest road to it 
+,,,,u,int,Unique identifier of the end node associated with the edge
+,,,,v,int,Unique identifier of the other end node associated with the edge
+,,,,key,int,"A value that differentiates between parallel edges using the same u,v pair"
+,,,,osmid,int,ID(s) of the OSM streets associated with the edge
+,,,,oneway,bool,A flag that indicates whether the edge is one-way
+,,,,lanes,int,Number of lanes associated with the edge
+,,,,name,string,Street names associated with the edge
+,,,,highway,string,"Type of road associated with the edge (e.g. primary, secondary, residential, footway, cycleway, etc.)"
+,,,,type_highway,string,"Type of road associated with the edge in terms of whether it's for driving, cycling, walking, or others"
+,,,,maxspeed,string,Maximum speed limit associated with the edge
+,,,,junction,string,Indicates the type of junction associated with the edge
+,,,,length,float,length of the edge
+,,,,from,int,Unique identifier of the 'from' node associated with the edge (either u or v)
+,,,,to,int,Unique identifier of the 'to' node associated with the edge (either u or v)
+,,,,ref,string,"Reference number or code for roads, highway exits, routes, entrances to big buildings etc"
+,,,,tunnel,string,Indicates whether the road is passing a tunnel and/or the type of tunnel
+,,,,bridge,string,Indicates whether the road is on a bridge and/or the type of bridge
+,,,,service,string,Indicates whether the road is a service road and/or the type of service road
+,,,,access,string,Indicates legal permissions/restrictions of the accessibility of the road
+,,,,road_width,float,Width of the road from kerb to kerb
+,,,,area,string,Indicates whether the way is closed and used to define an area
+,,,,est_width,float,Estimated width of the road from kerb to kerb
+,,,,reversed,bool,"Indicates roads that alternate between different directions regularly but infrequently, typically only a few times a day"
+16,perception.csv,"Contains the scores, in scale of 0-10, predicted for each of six perceptual dimensions (Safe, Lively, Beautiful, Wealthy, Boring, Depressing).","Contains the predicted scores (in scale of 0-10, high score indicates strong feeling) of human subjective perceptions, using model trained on the Place Pulse 2.0. Accuracy depends on model performance.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,Safe,float,Score for 'safe' (in scale of 0-10)
+,,,,Lively,float,Score for 'lively' (in scale of 0-10)
+,,,,Beautiful,float,Score for 'beautiful' (in scale of 0-10)
+,,,,Wealthy,float,Score for 'Wealthy' (in scale of 0-10)
+,,,,Boring,float,Score for 'Boring' (in scale of 0-10)
+,,,,Depressing,float,Score for 'Depressing' (in scale of 0-10)
+17,places365.csv,Contains the place/scene classification for each image.,Obtained from model pre-trained on the Places dataset which has over 400 categories for a variety of places and scenes. Accuracy depends on model performance.,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,Safe,string,The type of place or scene classified for the image
+18,season.csv,Contains the season determined for each image based on climate zone and month.,"Accuracy depends on the temporal and spatial accuracy of the image given by source, and the accuracy of the Köppen climate clasiffication zones used.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,season,string,"Denotes which season the image is taken in: tropical, spring, summer, autumn, or winter"
+19,segmentation.csv,Contains the count of segmented pixels of each semantic classes (65 categories in total) identified in the image.,Based on panoptic segmentation results obtained with Mask2former model. Accuracy is dependent on model performance.,uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,Bird,int,Number of pixels of target semantic class
+,,,,Ground-Animal,int,Number of pixels of target semantic class
+,,,,Curb,int,Number of pixels of target semantic class
+,,,,Fence,int,Number of pixels of target semantic class
+,,,,Guard-Rail,int,Number of pixels of target semantic class
+,,,,Barrier,int,Number of pixels of target semantic class
+,,,,Wall,int,Number of pixels of target semantic class
+,,,,Bike-Lane,int,Number of pixels of target semantic class
+,,,,Crosswalk---Plain,int,Number of pixels of target semantic class
+,,,,Curb-Cut,int,Number of pixels of target semantic class
+,,,,Parking,int,Number of pixels of target semantic class
+,,,,Pedestrian-Area,int,Number of pixels of target semantic class
+,,,,Rail-Track,int,Number of pixels of target semantic class
+,,,,Road,int,Number of pixels of target semantic class
+,,,,Service-Lane,int,Number of pixels of target semantic class
+,,,,Sidewalk,int,Number of pixels of target semantic class
+,,,,Bridge,int,Number of pixels of target semantic class
+,,,,Building,int,Number of pixels of target semantic class
+,,,,Tunnel,int,Number of pixels of target semantic class
+,,,,Person,int,Number of pixels of target semantic class
+,,,,Bicyclist,int,Number of pixels of target semantic class
+,,,,Motorcyclist,int,Number of pixels of target semantic class
+,,,,Other-Rider,int,Number of pixels of target semantic class
+,,,,Lane-Marking---Crosswalk,int,Number of pixels of target semantic class
+,,,,Lane-Marking---General,int,Number of pixels of target semantic class
+,,,,Mountain,int,Number of pixels of target semantic class
+,,,,Sand,int,Number of pixels of target semantic class
+,,,,Sky,int,Number of pixels of target semantic class
+,,,,Snow,int,Number of pixels of target semantic class
+,,,,Terrain,int,Number of pixels of target semantic class
+,,,,Vegetation,int,Number of pixels of target semantic class
+,,,,Water,int,Number of pixels of target semantic class
+,,,,Banner,int,Number of pixels of target semantic class
+,,,,Bench,int,Number of pixels of target semantic class
+,,,,Bike-Rack,int,Number of pixels of target semantic class
+,,,,Billboard,int,Number of pixels of target semantic class
+,,,,Catch-Basin,int,Number of pixels of target semantic class
+,,,,CCTV-Camera,int,Number of pixels of target semantic class
+,,,,Fire-Hydrant,int,Number of pixels of target semantic class
+,,,,Junction-Box,int,Number of pixels of target semantic class
+,,,,Mailbox,int,Number of pixels of target semantic class
+,,,,Manhole,int,Number of pixels of target semantic class
+,,,,Phone-Booth,int,Number of pixels of target semantic class
+,,,,Pothole,int,Number of pixels of target semantic class
+,,,,Street-Light,int,Number of pixels of target semantic class
+,,,,Pole,int,Number of pixels of target semantic class
+,,,,Traffic-Sign-Frame,int,Number of pixels of target semantic class
+,,,,Utility-Pole,int,Number of pixels of target semantic class
+,,,,Traffic-Light,int,Number of pixels of target semantic class
+,,,,Traffic-Sign-(Back),int,Number of pixels of target semantic class
+,,,,Traffic-Sign-(Front),int,Number of pixels of target semantic class
+,,,,Trash-Can,int,Number of pixels of target semantic class
+,,,,Bicycle,int,Number of pixels of target semantic class
+,,,,Boat,int,Number of pixels of target semantic class
+,,,,Bus,int,Number of pixels of target semantic class
+,,,,Car,int,Number of pixels of target semantic class
+,,,,Caravan,int,Number of pixels of target semantic class
+,,,,Motorcycle,int,Number of pixels of target semantic class
+,,,,On-Rails,int,Number of pixels of target semantic class
+,,,,Other-Vehicle,int,Number of pixels of target semantic class
+,,,,Trailer,int,Number of pixels of target semantic class
+,,,,Truck,int,Number of pixels of target semantic class
+,,,,Wheeled-Slow,int,Number of pixels of target semantic class
+,,,,Car-Mount,int,Number of pixels of target semantic class
+,,,,Ego-Vehicle,int,Number of pixels of target semantic class
+,,,,Total,int,Total number of pixels in image
+,,,,green_view_index,float,Calculated by dividing 'Vegetation' column by 'Total' column
+,,,,sky_view_index,float,Calculated by dividing 'Sky' column by 'Total' column
+20,simplemaps.csv,"Contains the information of the city associated with the image, obtained from the World Cities database by Simplemaps.","The calculation is as accurate as the location of the image given by the source, which also relies on the accuracy of the capturing devices. The accuracy could also be affected by the accuracy of the World Cities database.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,city,string,The name of the city/town as a Unicode string (e.g. Goiânia)
+,,,,city_ascii,string,The name of the city/town as an ASCII string (e.g. Goiania). Left blank if ASCII representation is not possible.
+,,,,city_id,int,A 10-digit unique id generated by SimpleMaps
+,,,,city_lat,float,The latitude of the city/town
+,,,,city_lon,float,The longitude of the city/town
+,,,,country,string,The name of the city/town's country
+,,,,iso2,string,The alpha-2 iso code of the country
+,,,,iso3,string,The alpha-3 iso code of the country
+,,,,admin_name,string,The name of the highest level administration region of the city town (e.g. a US state or Canadian province). Possibly blank.
+,,,,capital,string,"Blank string if not a capital, otherwise: primary - country's capital (e.g. Washington D.C.), admin - first-level admin capital (e.g. Little Rock, AR), minor - lower-level admin capital (e.g. Fayetteville, AR)"
+,,,,population,float,"An estimate of the city's urban population. Only available for some (prominent) cities. If the urban population is not available, the municipal population is used."
+,,,,continent,string,The continent the image is located at
+21,speed.csv,Contains various statistical values related to speed for each image.,"Calculation accuracy depends on the accuracy of location and capture time from the source metadata, which also depends on the accuracy of such data from the capturing device.",uuid,string,"Universally Unique IDentifier, unique for every image"
+,,,,source,string,"Source of the image, either Mapillary or KartaView"
+,,,,orig_id,int,Original ID of the image as specified by Mapillary or KartaView
+,,,,seq_dist_m,float,Distance of the image's sequence in metres
+,,,,seq_dist_km,float,Distance of the image's sequence in kilometres
+,,,,seq_time_hr,float,Time duration of the image's sequence in hours 
+,,,,seq_speed_kph,float,"Average speed of the image's sequence in km/h, calculated as the ratio of seq_dist_km to seq_time_hr"
+,,,,seq_img_count,float,The count of images in the image's sequence
+,,,,segmt_speed_mean_kph,float,The mean of all segment speeds in the image's sequence (segment is the interval between each pair of consecutive points in a sequence) 
+,,,,segmt_speed_var_kph2,float,The variance of all segment speeds in the image's sequence
+,,,,segmt_speed_max_kph,float,The maximum of all segment speeds in the image's sequence
+,,,,segmt_speed_max5_mean_kph,float,The mean of the top five segment speeds in the image's sequence
+,,,,distance_from_prev_m,float,Distance between the image and the previous image in metres
+,,,,distance_from_prev_km,float,Distance between the image and the previous image in kilometres
+,,,,time_from_prev_s,float,Time duration between the image and the prvious image in seconds
+,,,,time_from_prev_hr,float,Time duration between the image and the prvious image in hours
+,,,,avg_speed_from_prev_kph,float,"Average speed between the image and the previous image in km/h, calculated as the ratio of distance_from_prev_km to time_from_prev_hr"
